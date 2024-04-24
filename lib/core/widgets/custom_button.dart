@@ -10,7 +10,7 @@ final void Function()? function;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(onTap: () {
-      function;
+      return function!();
     },
       child: Container(
         width: 350,

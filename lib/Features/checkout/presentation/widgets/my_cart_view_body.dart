@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:payment_gateway/Features/checkout/presentation/views/payment_method_bottom_sheet.dart';
+
 import 'package:payment_gateway/core/utils/styles.dart';
 import 'package:payment_gateway/core/widgets/custom_button.dart';
 
@@ -59,7 +61,17 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          CustomButton(value: 'Complete Payment',function: (){},),
+          CustomButton(
+            value: 'Complete Payment',
+            function: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return const PaymentMethodBottomSheet();
+                },
+              );
+            },
+          ),
           const SizedBox(
             height: 12,
           ),
@@ -68,8 +80,6 @@ class MyCartViewBody extends StatelessWidget {
     );
   }
 }
-
-
 
 class OrderInfo extends StatelessWidget {
   final String item, value;
@@ -112,3 +122,5 @@ class TotalValue extends StatelessWidget {
     );
   }
 }
+
+
