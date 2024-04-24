@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:payment_gateway/core/widgets/payment_mthod_item.dart';
 
-class PaymentDetailsView extends StatefulWidget {
-  const PaymentDetailsView({super.key});
+class PaymentMethodView extends StatefulWidget {
+  const PaymentMethodView({super.key});
 
   @override
-  State<PaymentDetailsView> createState() => _PaymentDetailsViewState();
+  State<PaymentMethodView> createState() => _PaymentMethodViewState();
 }
 
-class _PaymentDetailsViewState extends State<PaymentDetailsView> {
+class _PaymentMethodViewState extends State<PaymentMethodView> {
   final List<String> paymentMethodItems = [
     'assets/images/card.png',
     'assets/images/paypal.png'

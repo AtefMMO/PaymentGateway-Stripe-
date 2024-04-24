@@ -12,7 +12,7 @@ class PaymentMethodBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const PaymentDetailsView(),
+          const PaymentMethodView(),
           const SizedBox(height: 32,),
           CustomButton(
             value: 'Continue',
