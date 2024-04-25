@@ -14,7 +14,7 @@ String image;
       decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             side:  BorderSide(
-              color: isActive? Colors.green: Colors.black38,
+              color: isActive? Colors.orange: Colors.black38,
               width: 1.50,
             ),
             borderRadius: BorderRadius.circular(15),
