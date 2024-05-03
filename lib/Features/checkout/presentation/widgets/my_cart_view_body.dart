@@ -1,9 +1,12 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:payment_gateway/Features/checkout/presentation/views/payment_method_bottom_sheet.dart';
 
-import 'package:payment_gateway/core/utils/styles.dart';
+import 'package:flutter/material.dart';
+import 'package:payment_gateway/Features/checkout/presentation/manager/payment_cubit.dart';
+import 'package:payment_gateway/Features/checkout/presentation/views/payment_method_bottom_sheet.dart';
+import 'package:payment_gateway/core/utils/text_styles.dart';
 import 'package:payment_gateway/core/widgets/custom_button.dart';
+import 'package:payment_gateway/core/widgets/custom_button_bloc_consumer.dart';
+import 'package:payment_gateway/data/repos/checkout_repo_impl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
@@ -67,7 +70,7 @@ class MyCartViewBody extends StatelessWidget {
               showModalBottomSheet(
                 context: context,
                 builder: (context) {
-                  return const PaymentMethodBottomSheet();
+                  return PaymentMethodBottomSheet();
                 },
               );
             },
@@ -81,6 +84,8 @@ class MyCartViewBody extends StatelessWidget {
   }
 }
 
+
+
 class OrderInfo extends StatelessWidget {
   final String item, value;
   const OrderInfo({super.key, required this.item, required this.value});
@@ -90,12 +95,12 @@ class OrderInfo extends StatelessWidget {
       children: [
         Text(
           item,
-          style: Styles.style18,
+          style: TextStyles.style18,
         ),
         const Spacer(),
         Text(
           '$value \$',
-          style: Styles.style18,
+          style: TextStyles.style18,
         ),
       ],
     );
@@ -111,16 +116,14 @@ class TotalValue extends StatelessWidget {
       children: [
         Text(
           item,
-          style: Styles.style24,
+          style: TextStyles.style24,
         ),
         const Spacer(),
         Text(
           value,
-          style: Styles.style24,
+          style: TextStyles.style24,
         ),
       ],
     );
   }
 }
-
-

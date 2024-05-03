@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:payment_gateway/Features/checkout/presentation/views/my_cart_view.dart';
+import 'package:payment_gateway/core/utils/api_keys.dart';
 
 void main() {
+  Stripe.publishableKey=ApiKeys.publishableKey;
   runApp(const CheckoutApp());
 }
 class CheckoutApp extends StatelessWidget {
@@ -9,7 +12,7 @@ class CheckoutApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  const MaterialApp(
       home: MyCartView(),
     );
   }

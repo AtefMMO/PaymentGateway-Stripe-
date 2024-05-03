@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:payment_gateway/Features/checkout/presentation/widgets/my_cart_view_body.dart';
 
-import 'package:payment_gateway/core/utils/styles.dart';
+import 'package:payment_gateway/core/utils/text_styles.dart';
+
 
 class MyCartView extends StatelessWidget {
   const MyCartView({super.key});
@@ -10,9 +12,9 @@ class MyCartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_outlined,color: Colors.black,),
+        leading: Icon(Icons.arrow_back_outlined, color: Colors.black,),
         title: Text(
-          'My Cart',style: Styles.style25,
+          'My Cart', style: TextStyles.style25,
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
