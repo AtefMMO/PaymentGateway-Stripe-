@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:payment_gateway/core/errors/failures.dart';
 import 'package:payment_gateway/core/utils/stripe_service.dart';
 import 'package:payment_gateway/data/models/payment_intent_input.dart';
+import 'package:payment_gateway/data/models/stripe_customer_input_model.dart';
 import 'package:payment_gateway/data/repos/checkout_repo.dart';
 
 class CheckoutRepoImplementation extends CheckoutRepo {
