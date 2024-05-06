@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment_gateway/Features/checkout/presentation/manager/payment_method_cubit.dart';
 import 'package:payment_gateway/core/widgets/payment_mthod_item.dart';
 
-class PaymentMethodView extends StatefulWidget {
-  const PaymentMethodView({super.key});
-
-  @override
-  State<PaymentMethodView> createState() => _PaymentMethodViewState();
-}
-
-class _PaymentMethodViewState extends State<PaymentMethodView> {
+class PaymentMethodView extends StatelessWidget {
   final List<String> paymentMethodItems = [
     'assets/images/card.png',
     'assets/images/paypal.png'
   ];
-  int activeIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -24,12 +19,16 @@ class _PaymentMethodViewState extends State<PaymentMethodView> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: GestureDetector(
               onTap: () {
-                activeIndex = index;
-                setState(() {});
+                BlocProvider.of<PaymentMethodCubit>(context)
+                    .getPaymentMethod(index);
               },
-              child: PaymentMethodItem(
-                image: paymentMethodItems[index],
-                isActive: activeIndex == index ? true : false,
+              child: BlocBuilder<PaymentMethodCubit, PaymentMethodState>(
+                builder: (context, state) {
+                  return PaymentMethodItem(
+                    image: paymentMethodItems[index],
+                    isActive: state.activeIndex == index,
+                  );
+                },
               ),
             ),
           );
